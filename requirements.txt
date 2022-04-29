@@ -1,0 +1,5 @@
+pandas
+numpy
+# adding source as package 
+# for local packages 
+-e .
