@@ -7,3 +7,10 @@ stages:
     - src/utils/main.py
     outs:
     - data/from_ics/raw_format/redwine.csv
+  data_transformed:
+    cmd: python src/standard_transform.py
+    deps:
+    - data/from_ics/raw_format/redwine.csv
+    - src/standard_transform.py
+    outs:
+    - data/from_ics/raw_format/transformed.csv

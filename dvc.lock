@@ -16,3 +16,16 @@ stages:
     - path: data/from_ics/raw_format/redwine.csv
       md5: 7d814a1bda02145efe703f4e1c01847a
       size: 93599
+  data_transformed:
+    cmd: python src/standard_transform.py
+    deps:
+    - path: data/from_ics/raw_format/redwine.csv
+      md5: 7d814a1bda02145efe703f4e1c01847a
+      size: 93599
+    - path: src/standard_transform.py
+      md5: 3e6cf4f54d89cc4de7d0dcedccbbe130
+      size: 456
+    outs:
+    - path: data/from_ics/raw_format/transformed.csv
+      md5: 974396479cb8b629a9f2e5cf375fd1d3
+      size: 492369
