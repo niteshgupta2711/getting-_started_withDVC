@@ -1,0 +1,8 @@
+setup.py
+lib_name.egg-info/PKG-INFO
+lib_name.egg-info/SOURCES.txt
+lib_name.egg-info/dependency_links.txt
+lib_name.egg-info/requires.txt
+lib_name.egg-info/top_level.txt
+src/ingestion.py
+src/main.py
