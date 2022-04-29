@@ -1,1 +1,6 @@
-data_scource: https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
+data_source: 'https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv'
+
+data: 
+  data_source: 'from_ics'
+  raw_folder: 'raw_format'
+  file: 'redwine.csv'

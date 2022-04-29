@@ -1,0 +1,9 @@
+stages:
+  data_load:
+    cmd: python src/ingestion.py --config config/config.yaml
+    deps:
+    - config/config.yaml
+    - src/ingestion.py
+    - src/utils/main.py
+    outs:
+    - data/from_ics/raw_format/redwine.csv

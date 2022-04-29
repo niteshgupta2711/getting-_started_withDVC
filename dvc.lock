@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  data_load:
+    cmd: python src/ingestion.py --config config/config.yaml
+    deps:
+    - path: config/config.yaml
+      md5: 1082135fc1fc9269adab0250c6bf7322
+      size: 193
+    - path: src/ingestion.py
+      md5: 2994d37186ac6878ba46c0922899f54d
+      size: 869
+    - path: src/utils/main.py
+      md5: 29a8fd47876c2f4c63364f0962c16101
+      size: 253
+    outs:
+    - path: data/from_ics/raw_format/redwine.csv
+      md5: 7d814a1bda02145efe703f4e1c01847a
+      size: 93599
