@@ -29,3 +29,25 @@ stages:
     - path: data/from_ics/raw_format/transformed.csv
       md5: 974396479cb8b629a9f2e5cf375fd1d3
       size: 492369
+  split_data:
+    cmd: python src/data_split.py
+    deps:
+    - path: config/config.yaml
+      md5: 1082135fc1fc9269adab0250c6bf7322
+      size: 193
+    - path: src/data_split.py
+      md5: ab11695661389d991c6ddacee2548396
+      size: 1587
+    - path: src/utils/main.py
+      md5: 29a8fd47876c2f4c63364f0962c16101
+      size: 253
+    params:
+      params.yaml:
+        data_split.train: 0.7
+    outs:
+    - path: data/from_ics/pepared/test.csv
+      md5: 2b6c464305277f3232c8c9dcf024a3b1
+      size: 28402
+    - path: data/from_ics/pepared/train.csv
+      md5: ac25d0e3c19afa3a861b0946600e8201
+      size: 65344

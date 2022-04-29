@@ -7,10 +7,16 @@ stages:
     - src/utils/main.py
     outs:
     - data/from_ics/raw_format/redwine.csv
-  data_transformed:
-    cmd: python src/standard_transform.py
+
+
+  split_data:
+    cmd: python src/data_split.py
     deps:
-    - data/from_ics/raw_format/redwine.csv
-    - src/standard_transform.py
+    - config/config.yaml
+    - src/data_split.py
+    - src/utils/main.py
+    params:
+    - data_split.train
     outs:
-    - data/from_ics/raw_format/transformed.csv
+    - data/from_ics/pepared/test.csv
+    - data/from_ics/pepared/train.csv

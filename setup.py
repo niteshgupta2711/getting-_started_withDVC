@@ -20,4 +20,6 @@ python_version='>=3.7'
  # pip install wheel
  # python setup.py sdist bdist_wheel
  # pip install ./pkg.wheel
+ # a stage without dependencies in dvc.yaml file will always run
+ # you can see in dvc.lock file that all the components in a stage like outs,deps etc if you see a md5 over there which means that stage is being tracked
  
