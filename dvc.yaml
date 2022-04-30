@@ -15,6 +15,7 @@ stages:
     - config/config.yaml
     - src/data_split.py
     - src/utils/main.py
+    - params.yaml
     params:
     - data_split.train
     outs:

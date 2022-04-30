@@ -20,7 +20,10 @@ if __name__=="__main__":
     
     path_to_ICS=os.path.join('data',dataSource['data']['data_source'])
     path_to_prepared=os.path.join(path_to_ICS,'pepared')
-    os.makedirs(path_to_prepared)
+    try: 
+        os.makedirs(path_to_prepared)
+    except Exception as e:
+        print('directory already made')
     train_set=os.path.join(path_to_prepared,'train.csv')
     test_set=os.path.join(path_to_prepared,'test.csv')
     df=pd.read_csv(source_l,delimiter=';')
@@ -29,8 +32,11 @@ if __name__=="__main__":
     
     split_P=read_yaml('params.yaml')
     test_size_sta=int(split_P['data_split']['train']*total)
-    df.iloc[:int(split_P['data_split']['train']*total),:].to_csv(train_set,sep=',',index=False)
-    df.iloc[test_size_sta:,:].to_csv(test_set,sep=',',index=False)
+    try:
+        df.iloc[:int(split_P['data_split']['train']*total),:].to_csv(train_set,sep=',',index=False)
+        df.iloc[test_size_sta:,:].to_csv(test_set,sep=',',index=False)
+    except Exception as e:
+        print('file has already been created')
     
 
 # parser = argparse.ArgumentParser(description='Process some integers.')

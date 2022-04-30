@@ -35,9 +35,12 @@ stages:
     - path: config/config.yaml
       md5: 1082135fc1fc9269adab0250c6bf7322
       size: 193
+    - path: params.yaml
+      md5: 05453f792fa69ebfcba6eb65c84a907b
+      size: 58
     - path: src/data_split.py
-      md5: ab11695661389d991c6ddacee2548396
-      size: 1587
+      md5: 9a8613922839026689e2840362a9c6d4
+      size: 1765
     - path: src/utils/main.py
       md5: 29a8fd47876c2f4c63364f0962c16101
       size: 253
