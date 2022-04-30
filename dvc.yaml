@@ -15,9 +15,27 @@ stages:
     - config/config.yaml
     - src/data_split.py
     - src/utils/main.py
-    - params.yaml
+    - data/from_ics/raw_format/redwine.csv
+
     params:
     - data_split.train
     outs:
     - data/from_ics/pepared/test.csv
     - data/from_ics/pepared/train.csv
+  training:
+    cmd: python src/train.py --config=config/config.yaml
+    deps:
+    - config/config.yaml
+    - src/train.py
+    - src/utils/main.py
+    - data/from_ics/pepared/train.csv
+    outs:
+    - pickle/LRTrained.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - config/config.yaml
+    - data/from_ics/pepared/test.csv
+    - pickle/LRTrained.pkl
+    outs:
+    - results.txt

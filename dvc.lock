@@ -4,8 +4,8 @@ stages:
     cmd: python src/ingestion.py --config config/config.yaml
     deps:
     - path: config/config.yaml
-      md5: 1082135fc1fc9269adab0250c6bf7322
-      size: 193
+      md5: 89aa072fdbf4478af10f99c109cb8720
+      size: 322
     - path: src/ingestion.py
       md5: 2994d37186ac6878ba46c0922899f54d
       size: 869
@@ -33,11 +33,11 @@ stages:
     cmd: python src/data_split.py
     deps:
     - path: config/config.yaml
-      md5: 1082135fc1fc9269adab0250c6bf7322
-      size: 193
-    - path: params.yaml
-      md5: 05453f792fa69ebfcba6eb65c84a907b
-      size: 58
+      md5: 89aa072fdbf4478af10f99c109cb8720
+      size: 322
+    - path: data/from_ics/raw_format/redwine.csv
+      md5: 7d814a1bda02145efe703f4e1c01847a
+      size: 93599
     - path: src/data_split.py
       md5: 9a8613922839026689e2840362a9c6d4
       size: 1765
@@ -54,3 +54,38 @@ stages:
     - path: data/from_ics/pepared/train.csv
       md5: ac25d0e3c19afa3a861b0946600e8201
       size: 65344
+  training:
+    cmd: python src/train.py --config=config/config.yaml
+    deps:
+    - path: config/config.yaml
+      md5: 89aa072fdbf4478af10f99c109cb8720
+      size: 322
+    - path: data/from_ics/pepared/train.csv
+      md5: ac25d0e3c19afa3a861b0946600e8201
+      size: 65344
+    - path: src/train.py
+      md5: 4d1c5ac37b823b0893670b40e4c130b9
+      size: 823
+    - path: src/utils/main.py
+      md5: 29a8fd47876c2f4c63364f0962c16101
+      size: 253
+    outs:
+    - path: pickle/LRTrained.pkl
+      md5: d41ba6b8de3c568f1139d09b7eb7fdeb
+      size: 882
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: config/config.yaml
+      md5: 89aa072fdbf4478af10f99c109cb8720
+      size: 322
+    - path: data/from_ics/pepared/test.csv
+      md5: 2b6c464305277f3232c8c9dcf024a3b1
+      size: 28402
+    - path: pickle/LRTrained.pkl
+      md5: d41ba6b8de3c568f1139d09b7eb7fdeb
+      size: 882
+    outs:
+    - path: results.txt
+      md5: 8160a24be6dff7f5c7ec317e7b33263d
+      size: 19

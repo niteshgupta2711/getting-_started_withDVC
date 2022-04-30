@@ -4,3 +4,11 @@ data:
   data_source: 'from_ics'
   raw_folder: 'raw_format'
   file: 'redwine.csv'
+  split_data: 'pepared'
+  train: 'train.csv'
+  test: 'test.csv'
+
+
+model:
+  - folder: 'pickle'
+    model: 'LRTrained.pkl'
